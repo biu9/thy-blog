@@ -13,7 +13,7 @@ interface BlogProps {
 }
 
 function BlogApp(props: BlogProps) {
-    console.log("content=====",(props.content));
+    //console.log("content=====",(props.content));
     return (
         <div className='blog-container-bg'>
             <NavBar />

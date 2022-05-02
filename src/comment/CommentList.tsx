@@ -13,7 +13,7 @@ function CommentList() {
             setComments(response.data);
         })();
     }, []);
-    console.log(comments);
+    //console.log(comments);
     var test = comments.map((comment:any) => {
         return <Comment name={comment.userName} content={comment.content} key={comment.id}/>
     });

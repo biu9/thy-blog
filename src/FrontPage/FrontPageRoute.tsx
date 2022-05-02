@@ -17,7 +17,7 @@ function FrontPageRoute() {
             setPosts(response.data);
         })();
     }, []);
-    console.log("用于创建路由的参数:", posts);
+    //console.log("用于创建路由的参数:", posts);
     posts.map(item => {
         params.push(JSON.stringify({
             path: '/' + item.id,
@@ -27,14 +27,14 @@ function FrontPageRoute() {
             tags: item.tags,
         }))
     });
-    console.log("params", params);
+    //console.log("params", params);
     return (
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<FrontPageApp />} />
                 <Route path='/blogs' element={<ShowBlogs />} />
                 {params.map(item => {
-                    console.log(JSON.parse(item).path);
+                    //console.log(JSON.parse(item).path);
                     return (
                         <Route
                             path={JSON.parse(item).path}

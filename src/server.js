@@ -98,7 +98,7 @@ app.all('*', function(req, res, next) {
             code: 200,
             data:result
         });
-        console.log(result1);
+        //console.log(result1);
         res.end(result1);
     });
  });
@@ -115,10 +115,43 @@ app.all('*', function(req, res, next) {
             code: 200,
             data:result
         });
-        console.log(result1);
+        //console.log(result1);
         res.end(result1);
     });
  });
+
+ app.post('/api/login',function(req,res){
+     console.log("登录中...");
+     const userName = req.body.userName;
+     const password = req.body.password;
+     const sql = 'select * from user where userName = ? and password = ?';
+     const queryParams = [userName,password];
+     connection.query(sql,queryParams,function(err,result) {
+        console.log(result);
+        if(err){
+            result = JSON.stringify({
+                code:400,
+            });
+            res.end(result);
+            return;
+        }
+        else{
+            if(result.length === 0){
+                result = JSON.stringify({
+                    code:401,
+                });
+                res.end(result);
+                return;
+            }
+            result = JSON.stringify({
+                code:200,
+                data:result
+            });
+            res.end(result);
+            return;
+        }
+     });
+ })
 
 
 app.listen(port, () => {
