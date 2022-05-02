@@ -1,0 +1,140 @@
+body{
+    margin: 0;
+}
+
+.post-link {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    background-color: rgb(31, 29, 29);
+}
+
+.nav-link:hover{
+    background-color: #fff;
+    color: #d83535;
+    transition: 0.5s ease-in-out all;
+}
+
+.navbar-container {
+    background-color: rgb(31, 29, 29);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 23px;
+    font-weight: bold;
+    color: #fff;
+    width: 100%;
+}
+
+
+.navbar-right-item {
+    padding: 10px;
+}
+
+
+.navbar-right {
+    display: flex;
+    margin-right: 60px;
+}
+
+.navbar-left {
+    margin-left: 80px;
+    cursor: pointer;
+}
+
+.navbar-left:hover {
+    color: #d83535;
+    transition: 0.5s ease-in-out all;
+    background: #e4e1e1;
+}
+
+.navbar-right .navbar-right-item {
+    cursor: pointer;
+}
+
+.navbar-right .navbar-right-item:hover {
+    color: #d83535;
+    transition: 0.5s ease-in-out all;
+    background: #fff;
+}
+
+.intro-container {
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.intro-bg {
+    display: flex;
+    justify-content: center;
+    width: 750px;
+}
+
+.intro-pic {
+    background-color: #d83535;
+    width: 200px;
+    height: 200px;
+    background-image: url('../FrontPage//imgs/thy.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+
+.intro-left {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    margin-right: 100px;
+}
+
+.intro-relate {
+    width: 150px;
+    margin: 0 auto;
+}
+
+.front-content-container{
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.front-content-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.post-content {
+    width: 80%;
+    height: 100px;
+    overflow:hidden;
+}
+
+.post-container {
+    display: flex;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.post-right:hover {
+    box-shadow: 1px 1px 2px 1px #000000;
+    transition: 0.5s ease-in-out all;
+    border-left: rgb(255, 0, 0) 5px solid;
+}
+
+.post-right {
+    padding-left: 20px;
+    border-left: #000 5px solid;
+}
+
+
