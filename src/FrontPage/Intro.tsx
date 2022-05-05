@@ -3,10 +3,10 @@ import * as React from 'react';
 function Intro() {
     return(
         <div className='intro-container'>
+            <div className='intro-decroation-circle'></div>
             <div className='intro-bg'>
             <div className='intro-left'>
                 <div className='intro-pic'>
-                    
                 </div>
                 <h3 className='intro-name'>
                     不想写名字qaq

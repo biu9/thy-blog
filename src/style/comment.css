@@ -9,17 +9,24 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .comment-input-container {
-    width: 500px;
+    /*
+   /* width: 500px;
     margin: 20px;
     font-size: 14px;
     background-color: #fff;
     border: 1px solid #f0f0f0;
     padding: 20px;
     font-size: 14px;
-    margin-bottom: 0px;
+    
+    margin-bottom: 0px;*/
+    display: grid;
+    grid-column:2/4;
+    background-color: #fff;
+    border: 1px solid #f0f0f0;
 }
 
 .comment-input {
@@ -81,17 +88,40 @@ body {
 }
 
 .comment-container {
-    display: flex;
-    background-color: rgb(255, 255, 255);
-    width: 500px;
     height: 200px;
-    padding: 20px;    
+    padding: 0px;    
     border-top: 5px solid #f5f5f5;
-
 }
 
 .comment-name{
     font-weight: bold;
     font-size: 20px;
-    margin-right: 50px;
+    padding-right: 50px;
+}
+
+.comment-container {
+    display: grid;
+    grid-template-columns: 20% 10% 50% 20%;
+}
+
+.comment-name {
+    grid-column:2/3;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 5px;
+}
+
+.comment-content {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+}
+
+.comment-app-input-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 20% 10% 50% 20%;
+}
+
+.comment-list-container {
+    width: 100%;
 }

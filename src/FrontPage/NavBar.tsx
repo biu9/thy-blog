@@ -8,6 +8,28 @@ import { useNavigate } from 'react-router-dom';
 import '../style/nav-modal.css';
 
 
+function setToken(token: string):void {
+    localStorage.setItem('token', JSON.stringify({
+        token: token,
+        time: new Date().getTime()
+    }));
+};
+
+function getToken(exp:number):Boolean {
+    const data1 = localStorage.getItem('token');
+    if(!data1) {
+        return false;
+    } else {
+        const data = JSON.parse(data1);
+        if(data.time + exp < new Date().getTime()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+} 
+
+
 async function handleLogin({ userName, passWord }: { userName: string, passWord: string }) {
     const postData = JSON.stringify({
         "userName": userName,
@@ -29,18 +51,12 @@ function NavBar() {
     const [password, setPassword] = useState('');
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
-    const homeBtn = document.getElementById('home');
-    if (homeBtn) {
-        homeBtn.addEventListener('click', () => {
-            setOpen(true);
-        })
-    }
 
-    function handleUsername(e: React.ChangeEvent<HTMLInputElement>): void {
+    function handleUsername(e: React.FocusEvent<HTMLInputElement>): void {
         setUserName(e.target.value);
         //console.log("username:",userName);
     }
-    function handlePassword(e: React.ChangeEvent<HTMLInputElement>): void {
+    function handlePassword(e: React.FocusEvent<HTMLInputElement>): void {
         setPassword(e.target.value);
         //console.log("password:",password);
     }
@@ -56,12 +72,12 @@ function NavBar() {
                         className="modal-input"
                         label="user name"
                         variant='filled'
-                        onChange={handleUsername} />
+                        onBlur={handleUsername} />
                     <TextField
                         className="modal-input"
                         label="password"
                         variant='filled'
-                        onChange={handlePassword} />
+                        onBlur={handlePassword} />
                     <Button
                         variant='contained'
                         className='modal-btn'
@@ -72,9 +88,11 @@ function NavBar() {
                             (async()=>{
                                 const res = await loginRes;
                                 if (res.code === 200) {
-                                    navigate('/blogs');
+                                    setToken(res.token);
+                                    navigate('/home');
                                 } else {
-                                    navigate('/');
+                                    alert("用户名或密码错误");
+                                    //navigate('/');
                                 }
                             })();
                         }}
@@ -90,7 +108,16 @@ function NavBar() {
                     </Link>
                 </div>
                 <div className='navbar-right'>
-                    <div className='navbar-right-item' id='home'>
+                    <div className='navbar-right-item' id='home'
+                    onClick={() => {
+                        if(getToken(1000*60*60*24)){
+                            navigate('/home');
+                            return;
+                        } else{
+                            setOpen(true);                            
+                        }
+                    }}
+                    >
                         home
                     </div>
                     <div className='navbar-right-item'>

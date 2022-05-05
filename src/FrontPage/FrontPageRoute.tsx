@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FrontPageApp from './FrontPageApp';
 import BlogApp from '../blog-page/BlogApp';
 import ShowBlogs from '../blogs/ShowBlogs';
+import Home from '../home/Home';
 import { useEffect, useState } from 'react';
 
 function FrontPageRoute() {
@@ -25,6 +26,7 @@ function FrontPageRoute() {
             time: item.time,
             content: item.content,
             tags: item.tags,
+            id: item.id,
         }))
     });
     //console.log("params", params);
@@ -33,6 +35,7 @@ function FrontPageRoute() {
             <Routes>
                 <Route path='/' element={<FrontPageApp />} />
                 <Route path='/blogs' element={<ShowBlogs />} />
+                <Route path='/home' element={<Home />} />
                 {params.map(item => {
                     //console.log(JSON.parse(item).path);
                     return (
@@ -44,6 +47,7 @@ function FrontPageRoute() {
                                 content={JSON.parse(item).content}
                                 tags={JSON.parse(item).tags}
                                 key={JSON.parse(item).id}
+                                blogId={JSON.parse(item).id}
                             />}
                         />
                     )

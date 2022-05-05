@@ -64,7 +64,8 @@ body{
 }
 
 .intro-container {
-    background-color: #f5f5f5;
+    background-color: #d8dcdf;
+    z-index: -2;
     display: flex;
     justify-content: center;
     padding: 50px;
@@ -77,13 +78,14 @@ body{
 }
 
 .intro-pic {
-    background-color: #d83535;
     width: 200px;
     height: 200px;
     background-image: url('../FrontPage//imgs/thy.jpg');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
+    box-shadow:  5px 5px 10px #8a8d8f,
+    -5px -5px 10px #ffffff;
 }
 
 .intro-left {
@@ -98,6 +100,17 @@ body{
 .intro-relate {
     width: 150px;
     margin: 0 auto;
+}
+
+.intro-right {
+    z-index: 2;
+    width: 100%;
+    border-radius: 64px;
+    background: #d8dcdf;
+    box-shadow:  5px 5px 10px #8a8d8f,
+                 -5px -5px 10px #ffffff;
+    z-index: 1;
+    padding: 10px;
 }
 
 .front-content-container{
@@ -130,11 +143,14 @@ body{
     box-shadow: 1px 1px 2px 1px #000000;
     transition: 0.5s ease-in-out all;
     border-left: rgb(255, 0, 0) 5px solid;
+    box-shadow:  5px 5px 10px #cfd2d4,
+    -5px -5px 10px #ffffff;
 }
 
 .post-right {
     padding-left: 20px;
     border-left: #000 5px solid;
+    width: 100%;
 }
 
 

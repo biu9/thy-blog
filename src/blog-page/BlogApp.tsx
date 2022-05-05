@@ -10,6 +10,7 @@ interface BlogProps {
     "time": string;
     "content": string;
     "tags": string[];
+    "blogId":string;
 }
 
 function BlogApp(props: BlogProps) {
@@ -30,7 +31,9 @@ function BlogApp(props: BlogProps) {
                     </Markdown>
                 </p>
             </div>
-            <CommentApp/>
+            <CommentApp
+            blogId={props.blogId}
+            />
         </div>
     )
 };

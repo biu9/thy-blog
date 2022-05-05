@@ -3,7 +3,7 @@ import { useState } from 'react';
 import '../style/comment.css'
 
 
-function CommentInput() {
+function CommentInput({blogId}: {blogId: string}) {
     const [userName, setUserName] = useState('');
     const [content, setContent] = useState('');
 
@@ -26,7 +26,7 @@ function CommentInput() {
             alert('请输入用户名和评论内容');
             return;
         }
-        fetch('http://localhost:1234/api/post',{
+        fetch(`http://localhost:1234/api/postComments/?id=${blogId}`,{
             method: 'post',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

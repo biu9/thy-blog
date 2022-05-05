@@ -3,13 +3,22 @@ import CommentInput from './CommentInput';
 import CommentList from './CommentList';
 import '../style/comment.css'
 
-function CommentApp() {
-    return(
+function CommentApp({ blogId }: { blogId: string }) {
+    return (
         <div className='CommentApp-container'>
-            <CommentInput/>
-            <CommentList/>
+            <h1>
+                Comments
+            </h1>
+            <div className='comment-app-input-container'>
+            <CommentInput 
+            blogId={blogId}
+            />
+            </div>
+                <CommentList 
+                blogId={blogId}
+                />
         </div>
     )
-};
+}
 
 export default CommentApp;

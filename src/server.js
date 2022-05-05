@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const bp = require('body-parser');
+const url = require('url');
 
 const port = 1234;
 process.env.port = port;
@@ -61,7 +62,7 @@ app.all('*', function(req, res, next) {
     });
  })
 
- app.post('/api/post',function(req,res){
+ app.post('/api/postComments',function(req,res){
      //console.log(req.body);
      console.log("收到请求...");
      if(!req.body.userName || !req.body.content){
@@ -72,7 +73,7 @@ app.all('*', function(req, res, next) {
         return;
      }
      const addSqlParams = [];
-     const addSql = 'insert into comment(id,name,content) values(?,?,?)';
+     const addSql = `insert into comment_${req.query.id}(id,name,content) values(?,?,?)`;
      var id = Date.now();
      addSqlParams.push(id.toString());
      addSqlParams.push(req.body.userName);
@@ -88,7 +89,8 @@ app.all('*', function(req, res, next) {
 
  app.get('/api/getComments',function(req,res){
     console.log("收到请求,拉取数据...");
-    const sql = 'select * from comment';
+    console.log("url的解码:",req.query);
+    const sql = `select * from comment_${req.query.id}`;
     connection.query(sql,function(err,result) {
         if(err) {
             console.log(err);
@@ -145,12 +147,38 @@ app.all('*', function(req, res, next) {
             }
             result = JSON.stringify({
                 code:200,
+                token:new Date().getTime(),
                 data:result
             });
             res.end(result);
             return;
         }
      });
+ });
+
+ app.post('/api/uploadBlog',function(req,res) {
+     const id = Date.now();
+     console.log("上传博客中...");
+     console.log(req.body);
+     const sql = `insert into blog_content(title,content,time,tags,id) values(?,?,?,?,?)`;
+     const createCommentSql =  `create table comment_${id}(id varchar(100) primary key ,name varchar(100),content varchar(500))`;
+     const addSqlParams = [req.body.title,
+        req.body.content,
+        req.body.time,
+        req.body.tag,
+        id];
+        connection.query(sql,addSqlParams,function(err) {
+            if(err){
+                console.log(err);
+                return;
+            }
+        });
+        connection.query(createCommentSql,function(err) {
+            if(err){
+                console.log(err);
+                return;
+            }
+        });
  })
 
 

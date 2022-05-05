@@ -1,0 +1,33 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.home-title {
+    width: 600px;
+}
+
+.home-time  {
+    width: 600px;
+}
+
+.home-content {
+    width: 600px;
+    height: 800px;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    outline: none;
+    resize: none;
+}
+
+.home-submit {
+    width: 600px;
+}
+
+.home-tag {
+    width: 600px;
+}
