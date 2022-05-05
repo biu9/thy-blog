@@ -2,6 +2,7 @@ import * as React from 'react';
 import NavBar from '../FrontPage/NavBar';
 import CommentApp from '../comment/CommentApp';
 import '../style/blog.css';
+import PageBottom  from '../PageBottom/PageBottom';
 
 var Markdown = require('react-remarkable');
 
@@ -34,6 +35,7 @@ function BlogApp(props: BlogProps) {
             <CommentApp
             blogId={props.blogId}
             />
+            <PageBottom/>
         </div>
     )
 };

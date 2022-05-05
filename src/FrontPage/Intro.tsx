@@ -9,24 +9,31 @@ function Intro() {
                 <div className='intro-pic'>
                 </div>
                 <h3 className='intro-name'>
-                    不想写名字qaq
+                    thy
                 </h3>
                 <div className='intro-relate'>
-                    这里是比较简短的自我介绍
+                    ZJU / EE / 大二
                 </div>
             </div>
             <div className='intro-right'>
                 <h1 className='intro-right-title'>
-                    自我介绍的标题
+                Biography
                 </h1>
-                <p className='intro-right-content'>
-                    自我介绍的内容,自我介绍的内容,自我介绍的内容
-                    ,自我介绍的内容,自我介绍的内容,自我介绍的内容,自我介绍的内容,自我介绍的内容
-                </p>
-                <p className='intro-right-content'>
-                    自我介绍的内容,自我介绍的内容,自我介绍的内容
-                    ,自我介绍的内容,自我介绍的内容,自我介绍的内容,自我介绍的内容,自我介绍的内容
-                </p>
+                <div className='intro-right-content'>
+                👋 Hi, I'm @biu9,a student studying in ZheJiang university
+                </div>
+                <div className='intro-right-content'>
+                👀 I'm interested in web development
+                </div>
+                <div className='intro-right-content'>
+                🌱 I'm currently learning React and TypeScript
+                </div>
+                <div className='intro-right-content'>
+                💞️ I'm looking to collaborate on develop a awesome web site
+                </div>
+                <div className='intro-right-content'>
+                📫 How to reach me: 1756127061@qq.com                
+                </div>
             </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import Intro from './Intro';
 import FrontContent from './FrontContent';
 import { BrowserRouter ,Route } from 'react-router-dom';
 import '../style/front.css';
+import PageBottom from '../PageBottom/PageBottom';
 
 function FrontPageApp() {
     return(
@@ -11,6 +12,7 @@ function FrontPageApp() {
             <NavBar/>
             <Intro/>
             <FrontContent/>
+            <PageBottom/>
         </div>
     )
 }
