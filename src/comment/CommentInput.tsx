@@ -3,7 +3,7 @@ import { useState } from 'react';
 import '../style/comment.css'
 
 
-function CommentInput({blogId}: {blogId: string}) {
+function CommentInput({blogId,setSubmitComment}: {blogId: string,setSubmitComment: any}) {
     const [userName, setUserName] = useState('');
     const [content, setContent] = useState('');
 
@@ -18,6 +18,8 @@ function CommentInput({blogId}: {blogId: string}) {
     }
 
     function handleSubmit() {
+        const domUserName = document.getElementById('userName') as HTMLInputElement;
+        const domContent = document.getElementById('content') as HTMLInputElement;
         var result = JSON.stringify({
             "userName": userName,
             "content": content
@@ -33,7 +35,13 @@ function CommentInput({blogId}: {blogId: string}) {
             },
             body: result
         });
-        //console.log(result);
+        setSubmitComment();
+        if(domUserName) {
+            domUserName.value = '';
+        }
+        if(domContent) {
+            domContent.value = '';
+        }
     }
 
     return(
@@ -47,6 +55,7 @@ function CommentInput({blogId}: {blogId: string}) {
                 className='comment-header-right' 
                 type='text'
                 placeholder='请输入你的名字'
+                id='userName'
                 onChange={handleUserNameChange}/>
             </div>
             <div className='comment-body'>
@@ -55,6 +64,7 @@ function CommentInput({blogId}: {blogId: string}) {
                 </div>
                 <textarea 
                 className='comment-body-right' 
+                id='content'
                 onChange={handleContentChange}
                 placeholder='请输入你的评论'/>
             </div>

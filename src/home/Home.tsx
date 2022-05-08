@@ -77,6 +77,11 @@ export default function Home() {
         });
         uploadDataFunc(uploadData);
         console.log(uploadData);
+        alert('上传成功');
+        setContent('');
+        setTitle('');
+        setTime('');
+        setTag('');
     }
 
     return (

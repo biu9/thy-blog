@@ -4,6 +4,7 @@ const app = express();
 const mysql = require('mysql');
 const bp = require('body-parser');
 const url = require('url');
+const fs = require('fs');
 
 const port = 1234;
 process.env.port = port;
@@ -64,6 +65,9 @@ app.all('*', function(req, res, next) {
 
  app.post('/api/postComments',function(req,res){
      //console.log(req.body);
+     const dateNow = new Date();
+     const logWrite = `${dateNow.getFullYear()}-${dateNow.getMonth()+1}-${dateNow.getDate()} ${dateNow.getHours()}:${dateNow.getMinutes()}:${dateNow.getSeconds()}:访问了评论接口`;
+     //fs.writeFile('../log.txt',logWrite);
      console.log("收到请求...");
      if(!req.body.userName || !req.body.content){
         res.end(JSON.stringify({
