@@ -8,12 +8,10 @@ function CommentInput({blogId,setSubmitComment}: {blogId: string,setSubmitCommen
     const [content, setContent] = useState('');
 
     function handleUserNameChange(e:React.ChangeEvent<HTMLInputElement>):void {
-        //console.log(e.target.value);
         setUserName(e.target.value);
     }
 
     function handleContentChange(e:React.ChangeEvent<HTMLTextAreaElement>):void {
-        //console.log(e.target.value);
         setContent(e.target.value);
     }
 
