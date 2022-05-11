@@ -19,7 +19,6 @@ function CommentApp({ blogId }: { blogId: string }) {
             <div className='comment-app-input-container'>
             <CommentInput 
             blogId={blogId}
-            setSubmitComment={updateComment}
             />
             </div>
                 <CommentList 

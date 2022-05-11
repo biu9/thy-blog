@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { useState } from 'react';
 import '../style/comment.css'
+import defaultEvent from './SubAndPub';
 
-
-function CommentInput({blogId,setSubmitComment}: {blogId: string,setSubmitComment: any}) {
+function CommentInput({blogId}: {blogId: string}) {
     const [userName, setUserName] = useState('');
     const [content, setContent] = useState('');
 
@@ -18,6 +18,7 @@ function CommentInput({blogId,setSubmitComment}: {blogId: string,setSubmitCommen
     function handleSubmit() {
         const domUserName = document.getElementById('userName') as HTMLInputElement;
         const domContent = document.getElementById('content') as HTMLInputElement;
+        var updateComments = new Date().getTime();
         var result = JSON.stringify({
             "userName": userName,
             "content": content
@@ -33,13 +34,13 @@ function CommentInput({blogId,setSubmitComment}: {blogId: string,setSubmitCommen
             },
             body: result
         });
-        setSubmitComment();
         if(domUserName) {
             domUserName.value = '';
         }
         if(domContent) {
             domContent.value = '';
         }
+        defaultEvent.emit("commentInput",updateComments);
     }
 
     return(

@@ -111,7 +111,7 @@ app.all('*', function(req, res, next) {
 
  app.get('/api/getPosts',function(req,res){
     console.log("收到请求,拉取数据...");
-    const sql = 'select * from blog_content';
+    const sql = 'select * from blog_content ORDER BY `id` DESC LIMIT 50 OFFSET 0';
     connection.query(sql,function(err,result) {
         if(err) {
             console.log(err);

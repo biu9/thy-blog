@@ -56,3 +56,7 @@ pre {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
 }
+
+p img {
+    width: 100%;
+}
