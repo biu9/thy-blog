@@ -45,6 +45,8 @@ body{
 .navbar-left {
     margin-left: 80px;
     cursor: pointer;
+    /*设置换行*/
+    white-space: nowrap;
 }
 
 .navbar-left:hover {
@@ -61,6 +63,12 @@ body{
     color: #d83535;
     transition: 0.5s ease-in-out all;
     background: #fff;
+}
+
+@media screen and (max-width:650px) {
+    .navbar-container {
+        display: none;
+    }
 }
 
 .intro-container {
@@ -126,9 +134,44 @@ body{
     align-items: center;
 }
 
+.fron-content-right {
+    text-align: start;
+    width: 150px;
+}
+
+.fron-content-right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fron-content-right ul li {
+    border-radius: 5px;
+    background-color: #000000;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+    margin: 0 5px 5px 0;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media screen and (max-width:800px) {
+    .fron-content-right {
+        display: none;
+    }
+    .intro-right {
+        display: none;
+    }
+}
+
+.front-content-left {
+    width: 100%;
+}
 
 .post-content {
-    width: 80%;
+    width: 90%;
     height: 100px;
     overflow:hidden;
 }
@@ -137,6 +180,7 @@ body{
     display: flex;
     margin-bottom: 20px;
     cursor: pointer;
+    width: 90%;
 }
 
 .post-right:hover {

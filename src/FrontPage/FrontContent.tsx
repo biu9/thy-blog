@@ -2,9 +2,12 @@ import * as React from 'react';
 import Post from './Post';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 function FrontContent() {
 
     var [posts, setPosts] = useState<any[]>([]);
+    let tags = new Array();
+    let uniqueTags = new Array();
     let postNumber = 0;
     useEffect(() => {
         (async () => {
@@ -14,7 +17,8 @@ function FrontContent() {
             setPosts(response.data);
         })();
     }, []);
-    //console.log(posts);
+    tags = posts.map(item => item.tags)
+    uniqueTags = unique(tags);
 
     return (
         <div className='front-content-bg'>
@@ -40,9 +44,38 @@ function FrontContent() {
                         })}
                     </div>
                 </div>
+                <div className='fron-content-right'>
+                        <h1>
+                            tags
+                        </h1>
+                        <ul>
+                            {
+                                uniqueTags.map(item => {
+                                    return (
+                                        <li>
+                                            {item}
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                </div>
             </div>
         </div>
     );
 };
+
+/**
+ * 数组去重
+ */
+function unique(arr: string[]) {
+    let map = new Map();
+    for (let i = 0; i < arr.length; i++) {
+        if (!map.has(arr[i])) {
+            map.set(arr[i], 1);
+        }
+    }
+    return Array.from(map.keys());
+}
 
 export default FrontContent;
