@@ -53,5 +53,6 @@
     "@types/mysql": "^2.15.21",
     "eslint-plugin-react-hooks": "^4.4.0"
   },
-  "proxy": "http://localhost:1234"
+  "proxy": "http://localhost:1234",
+  "homepage": "."
 }

@@ -15,6 +15,25 @@ code {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
 
+p {
+    line-height: 25px;
+}
+
+table {
+    width: 100%;
+    background-color: rgb(59, 58, 58);
+    border-radius: 3px;
+}
+
+tr td {
+    background-color:#ffffff;
+    text-align: center;
+}
+
+tr th {
+    background-color: #ffffff;
+}
+
 pre {
     background-color: #e4e4e4;
     padding: 20px;
