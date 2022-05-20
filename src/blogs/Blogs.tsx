@@ -2,6 +2,7 @@ import * as React from 'react';
 import Post from '../FrontPage/Post';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 export default function Blogs() {
 
     var [posts, setPosts] = useState<any[]>([]);
@@ -13,7 +14,6 @@ export default function Blogs() {
             setPosts(response.data);
         })();
     }, []);
-    //console.log(posts);
 
     return (
         <div className='front-content-bg'>

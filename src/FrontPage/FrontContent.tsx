@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function FrontContent() {
 
     var [posts, setPosts] = useState<any[]>([]);
+    let postNumber = 0;
     useEffect(() => {
         (async () => {
             const response = await fetch('http://localhost:1234/api/getPosts', {
@@ -24,6 +25,8 @@ function FrontContent() {
                             Recent post
                         </h1>
                         {posts.map(item => {
+                            postNumber++;
+                            if(postNumber <= 3)
                             return (
                                 <Link to={'/' + item.id} className='post-link'>
                                     <Post
@@ -35,13 +38,6 @@ function FrontContent() {
                                     />
                                 </Link>)
                         })}
-                    </div>
-                </div>
-                <div className='front-content-right'>
-                    <div className='front-content-right-title'>
-                        <h2>
-
-                        </h2>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import '../style/page-bottom.css'
-export default function PageBotton() {
+export default function PageBottom() {
     return(
         <div className='page-bottom-container'>
             <div>
