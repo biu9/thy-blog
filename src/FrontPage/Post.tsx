@@ -13,7 +13,6 @@ export default function Post(props: PostListProps) {
     //console.log(props);
     return (
         <div className='post-container'>
-            
             <div className='post-right'>
                 <h2 className='post-title'>
                 {props.title}

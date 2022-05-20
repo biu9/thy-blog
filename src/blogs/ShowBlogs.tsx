@@ -1,12 +1,15 @@
 import * as React from 'react';
+import '../style/blogs.css';
 import NavBar from '../FrontPage/NavBar';
-
+import Banner from './Banner';
+import Blogs from './Blogs';
 
 function ShowBlogs() {
     return(
         <div>
             <NavBar/>
-            <h1>ShowBlogs</h1>
+            <Banner/>
+            <Blogs/>
         </div>
     )
 };

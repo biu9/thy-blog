@@ -1,0 +1,45 @@
+.banner-container {
+    display: grid;
+    grid-template-columns: 20% 20% 40% 20%;
+    height: 400px;
+    width: 100%;
+    background-color: #fffffb;
+    justify-items: end;
+    align-items: center;
+}
+
+.banner-img {
+    grid-column: 3/4;
+    height: 400px;
+    grid-row: 1/2;
+}
+
+.banner-words {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+@media screen and (max-width: 768px) {
+    .banner-words {
+        display: none;
+    }
+    .banner-container {
+        display: grid;
+        grid-template-columns: 20% 60% 20%;
+        justify-items: center;
+    }
+    .banner-img {
+        grid-column: 2/3;
+    }
+}
+
+.blogs-blog-container {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+.blogs-blog {
+    grid-column: 2/3;
+}
