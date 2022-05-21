@@ -10,9 +10,15 @@
 
 .banner-img {
     grid-column: 3/4;
-    height: 400px;
     grid-row: 1/2;
+    background-image: url('https://typora-1309407228.cos.ap-shanghai.myqcloud.com/78216842_p0_master1200.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 100%;
 }
+
 
 .banner-words {
     grid-column: 2/3;

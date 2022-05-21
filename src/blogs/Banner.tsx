@@ -12,9 +12,9 @@ export default function Banner() {
                     and also my life
                 </h2>
             </div>
-            <img 
+            <div 
             className='banner-img'
-            src='https://typora-1309407228.cos.ap-shanghai.myqcloud.com/78216842_p0_master1200.jpg'/>
+            />
         </div>
     )
 }
