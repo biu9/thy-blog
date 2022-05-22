@@ -30,35 +30,37 @@ function FrontContent() {
                         </h1>
                         {posts.map(item => {
                             postNumber++;
-                            if(postNumber <= 3)
-                            return (
-                                <Link to={'/' + item.id} className='post-link'>
-                                    <Post
-                                        title={item.title}
-                                        time={item.time}
-                                        content={item.content}
-                                        key={item.id}
-                                        tags={item.tags}
-                                    />
-                                </Link>)
+                            if (postNumber <= 3)
+                                return (
+                                    <Link to={'/' + item.id} className='post-link'>
+                                        <Post
+                                            title={item.title}
+                                            time={item.time}
+                                            content={item.content}
+                                            key={item.id}
+                                            tags={item.tags}
+                                        />
+                                    </Link>)
                         })}
                     </div>
                 </div>
                 <div className='fron-content-right'>
-                        <h1>
-                            tags
-                        </h1>
-                        <ul>
-                            {
-                                uniqueTags.map(item => {
-                                    return (
-                                        <li>
+                    <h1>
+                        tags
+                    </h1>
+                    <ul>
+                        {
+                            uniqueTags.map(item => {
+                                return (
+                                    <li>
+                                        <Link to={'/tags/' + item}>
                                             {item}
-                                        </li>
-                                    )
-                                })
-                            }
-                        </ul>
+                                        </Link>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
                 </div>
             </div>
         </div>

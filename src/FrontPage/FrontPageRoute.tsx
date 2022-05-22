@@ -4,6 +4,7 @@ import FrontPageApp from './FrontPageApp';
 import BlogApp from '../blog-page/BlogApp';
 import ShowBlogs from '../blogs/ShowBlogs';
 import Home from '../home/Home';
+import TagedBlog from '../tag-page/TagedBlog';
 import { useEffect, useState } from 'react';
 
 function FrontPageRoute() {
@@ -19,6 +20,11 @@ function FrontPageRoute() {
         })();
     }, []);
     //console.log("用于创建路由的参数:", posts);
+    let uniquedTags = new Array();
+    uniquedTags = posts.map(item => item.tags);
+    uniquedTags = unique(uniquedTags);
+    //console.log("用于创建路由的参数:", uniquedTags);
+
     posts.map(item => {
         params.push(JSON.stringify({
             path: '/' + item.id,
@@ -52,9 +58,32 @@ function FrontPageRoute() {
                         />
                     )
                 })}
+                {
+                    uniquedTags.map(item => {
+                        return(
+                            <Route
+                                path={'/tags/' + item}
+                                element={<TagedBlog tag={item} />}
+                            />
+                        )
+                    })
+                }
             </Routes>
         </BrowserRouter>
     )
+}
+
+/**
+ * 数组去重
+ */
+ function unique(arr: string[]) {
+    let map = new Map();
+    for (let i = 0; i < arr.length; i++) {
+        if (!map.has(arr[i])) {
+            map.set(arr[i], 1);
+        }
+    }
+    return Array.from(map.keys());
 }
 
 export default FrontPageRoute;

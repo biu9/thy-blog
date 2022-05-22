@@ -8,7 +8,9 @@ function ShowBlogs() {
     return(
         <div>
             <NavBar/>
-            <Banner/>
+            <Banner
+            imgUrl='https://typora-1309407228.cos.ap-shanghai.myqcloud.com/78216842_p0_master1200.jpg'
+            />
             <Blogs/>
             <PageBottom/>
         </div>

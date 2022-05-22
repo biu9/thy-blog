@@ -186,6 +186,24 @@ app.all('*', function(req, res, next) {
  })
 
 
+ app.get('/api/getPosts/:tag',function(req,res){
+    //console.log("收到请求,拉取数据...");
+    const sql = 'select * from blog_content WHERE tags = ? ORDER BY `id` DESC LIMIT 50 OFFSET 0';
+    const queryParams = req.params.tag;
+    connection.query(sql,queryParams,function(err,result) {
+        if(err) {
+            console.log(err);
+            return;
+        }
+        const result1 = JSON.stringify({
+            code: 200,
+            data:result
+        });
+        //console.log(result1);
+        res.end(result1);
+    });
+ });
+
 app.listen(port, () => {
     console.log(`[Test Server] Server running at http://127.0.0.1:${port}`);
 });

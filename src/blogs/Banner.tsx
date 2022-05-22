@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '../style/blogs.css'
 
-export default function Banner() {
+export default function Banner({imgUrl}:{imgUrl:string}) {
     return(
         <div className='banner-container'>
             <div className='banner-words'>
@@ -14,6 +14,8 @@ export default function Banner() {
             </div>
             <div 
             className='banner-img'
+            id='bannerPic'
+            style={{backgroundImage: `url(${imgUrl})`}}
             />
         </div>
     )
