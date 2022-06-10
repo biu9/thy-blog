@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+/blog
+/src/server.js
 # dependencies
 /node_modules
 /.pnp
@@ -11,8 +12,6 @@
 # production
 /build
 
-#blog
-/blog
 
 # misc
 .DS_Store
@@ -24,6 +23,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-server.js
-log.txt
