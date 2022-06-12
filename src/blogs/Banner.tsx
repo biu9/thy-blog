@@ -6,7 +6,7 @@ export default function Banner({imgUrl}:{imgUrl:string}) {
         <div className='banner-container'>
             <div className='banner-words'>
                 <h1>
-                These are my blogs
+                    These are my blogs
                 </h1>
                 <h2>
                     and also my life

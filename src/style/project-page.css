@@ -1,0 +1,15 @@
+.project-page-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.one-project-container {
+    padding-top: 20px;
+    width: 60%;
+}
+
+.one-project {
+    width: 100%;
+}

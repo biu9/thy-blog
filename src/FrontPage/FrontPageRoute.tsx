@@ -5,6 +5,7 @@ import BlogApp from '../blog-page/BlogApp';
 import ShowBlogs from '../blogs/ShowBlogs';
 import Home from '../home/Home';
 import TagedBlog from '../tag-page/TagedBlog';
+import ProjectApp from '../project-page/ProjectApp';
 import { useEffect, useState } from 'react';
 
 function FrontPageRoute() {
@@ -42,6 +43,7 @@ function FrontPageRoute() {
                 <Route path='/' element={<FrontPageApp />} />
                 <Route path='/blogs' element={<ShowBlogs />} />
                 <Route path='/home' element={<Home />} />
+                <Route path='/projects' element={<ProjectApp />} />
                 {params.map(item => {
                     //console.log(JSON.parse(item).path);
                     return (

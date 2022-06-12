@@ -121,7 +121,9 @@ function NavBar() {
                         home
                     </div>
                     <div className='navbar-right-item'>
-                        projects
+                        <Link to='/projects' className='nav-link'>
+                            projects
+                        </Link>
                     </div>
                     <div className='navbar-right-item'>
                         <Link to='/blogs' className='nav-link'>
