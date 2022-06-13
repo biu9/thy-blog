@@ -6,35 +6,43 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../style/project-page.css';
+import {useNavigate} from 'react-router-dom';
 
 interface ProjectProps {
     title: string;
     imgUrl: string;
     description: string;
+    jumpUrl: string;
 }
 
-export default function OneProject() {
-
+export default function OneProject(props: ProjectProps) {
+    const navigate = useNavigate();
     return (
         <div className='one-project-container'>
             <Card className='one-project'>
                 <CardMedia
                     component="img"
-                    height="140"
-                    image="https://typora-1309407228.cos.ap-shanghai.myqcloud.com/97608845_p0.png"
-                    alt="green iguana"
+                    height="340"
+                    image={props.imgUrl}
+                    alt=""
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                        {props.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                        {props.description}
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Learn More</Button>
+                    <Button 
+                    size="small"
+                    onClick={() => {
+                        window.location.href = props.jumpUrl;
+                    }}
+                    >
+                        Have a look
+                    </Button>
                 </CardActions>
             </Card>
         </div>

@@ -5,13 +5,24 @@ import OneProject from '../project-page/OneProject';
 import '../style/project-page.css';
 
 export default function ProjectApp() {
-    return(
-        <div className='project-page-container'>
-            <NavBar />
-            <Banner imgUrl='https://typora-1309407228.cos.ap-shanghai.myqcloud.com/78216842_p2.jpg' />
-            <OneProject/>
-            <OneProject/>
-            <OneProject/>
-        </div>
-    )
+  const dataArray = require('./data.json');
+  return (
+    <div className='project-page-container'>
+      <NavBar />
+      <Banner imgUrl='https://typora-1309407228.cos.ap-shanghai.myqcloud.com/78216842_p2.jpg' />
+      {
+        dataArray.map((item:any, index:number) => {
+          return (
+            <OneProject
+              key={index}
+              title={item.title}
+              imgUrl={item.imgUrl}
+              description={item.description}
+              jumpUrl={item.jumpUrl}
+            />
+          )
+        })
+      }
+    </div>
+  )
 }
