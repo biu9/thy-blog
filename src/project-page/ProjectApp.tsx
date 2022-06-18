@@ -2,6 +2,7 @@ import * as React from 'react';
 import NavBar from '../FrontPage/NavBar';
 import Banner from '../blogs/Banner';
 import OneProject from '../project-page/OneProject';
+import PageBottom from '../PageBottom/PageBottom';
 import '../style/project-page.css';
 
 export default function ProjectApp() {
@@ -23,6 +24,7 @@ export default function ProjectApp() {
           )
         })
       }
+      <PageBottom/>
     </div>
   )
 }

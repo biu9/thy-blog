@@ -6,7 +6,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../style/project-page.css';
-import {useNavigate} from 'react-router-dom';
 
 interface ProjectProps {
     title: string;
@@ -16,7 +15,6 @@ interface ProjectProps {
 }
 
 export default function OneProject(props: ProjectProps) {
-    const navigate = useNavigate();
     return (
         <div className='one-project-container'>
             <Card className='one-project'>

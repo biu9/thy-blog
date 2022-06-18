@@ -1,15 +1,29 @@
 import * as React from 'react';
+import { useEffect,useState } from 'react';
 
 function Intro() {
+    let [myImage, setMyImage] = useState('');
+    let [myName, setMyName] = useState('');
+    useEffect(() => {
+        fetch('https://api.github.com/users/biu9',{
+            method: 'GET',
+        }).then(res => res.json()).then(data => {
+            setMyImage(data.avatar_url);
+            setMyName(data.name);
+        })
+    },[]);
+    //console.log("name:",myName);
+    //console.log("image:",myImage);
     return(
         <div className='intro-container'>
             <div className='intro-decroation-circle'></div>
             <div className='intro-bg'>
             <div className='intro-left'>
-                <div className='intro-pic'>
-                </div>
+                <img className='intro-pic' src={myImage} alt="加载中...">
+
+                </img>
                 <h3 className='intro-name'>
-                    thy
+                    {myName}
                 </h3>
                 <div className='intro-relate'>
                     ZJU / EE / 大二
