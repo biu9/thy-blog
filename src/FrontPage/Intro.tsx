@@ -1,19 +1,54 @@
 import * as React from 'react';
 import { useEffect,useState } from 'react';
 
+
+async function fetchUserInfo():Promise<any> {
+    const res = await fetch('https://api.github.com/users/biu9',{
+        method: 'get',
+    }).then(res => res.json());
+    localStorage.setItem('userInfo',JSON.stringify(res));
+    localStorage.setItem('userInfoSaveTime',new Date().getTime().toString());
+    return res;
+}
+
+/**
+ * @description 判断localstroage中的userInfo是否过期
+ * @returns 
+ */
+function ifExpired():boolean {
+    const EXPIRE_TIME = 60 * 60 * 24 * 7;
+    const userInfo = localStorage.getItem('userInfo');
+    const userInfoSaveTime = localStorage.getItem('userInfoSaveTime');
+    if(!userInfo || !userInfoSaveTime)
+        return true;
+    else if(userInfo && userInfoSaveTime) {
+        const now = new Date().getTime();
+        const saveTime = parseInt(userInfoSaveTime);
+        if(now - saveTime > EXPIRE_TIME)
+            return true;
+        else
+            return false;
+    }
+    return true;
+}
+
 function Intro() {
-    let [myImage, setMyImage] = useState('');
-    let [myName, setMyName] = useState('');
-    useEffect(() => {
-        fetch('https://api.github.com/users/biu9',{
-            method: 'GET',
-        }).then(res => res.json()).then(data => {
-            setMyImage(data.avatar_url);
-            setMyName(data.name);
+    let myImage = "";
+    let myName = "";
+    if(ifExpired()) {
+        const userInfo = fetchUserInfo();
+        userInfo.then(res => {
+            myImage = res.avatar_url;
+            myName = res.name;
         })
-    },[]);
-    //console.log("name:",myName);
-    //console.log("image:",myImage);
+    } else {
+        const userInfo = localStorage.getItem('userInfo');
+        if(userInfo) {
+            let userInfoObj = JSON.parse(userInfo);
+            myImage = userInfoObj.avatar_url;
+            myName = userInfoObj.name;
+        }
+    }
     return(
         <div className='intro-container'>
             <div className='intro-decroation-circle'></div>
