@@ -35,7 +35,7 @@ async function handleLogin({ userName, passWord }: { userName: string, passWord:
         "userName": userName,
         "password": passWord
     });
-    const response = await fetch('http://localhost:1234/api/login', {
+    const response = await fetch('http://124.220.6.76:1234/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

@@ -13,8 +13,8 @@ function CommentList({blogId}:{blogId: string}) {
     //console.log("list组件渲染了");
     useEffect(() => {
         (async () => {
-            //console.log("向服务器请求评论",`http://localhost:1234/api/getComments/?id=${blogId}`);
-            const response = await fetch(`http://localhost:1234/api/getComments/?id=${blogId}`, {
+            //console.log("向服务器请求评论",`http://124.220.6.76:1234/api/getComments/?id=${blogId}`);
+            const response = await fetch(`http://124.220.6.76:1234/api/getComments/?id=${blogId}`, {
                 method: 'get',
             }).then(res => res.json());
             setComments(response.data);

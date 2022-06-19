@@ -27,7 +27,7 @@ function CommentInput({blogId}: {blogId: string}) {
             alert('请输入用户名和评论内容');
             return;
         }
-        fetch(`http://localhost:1234/api/postComments/?id=${blogId}`,{
+        fetch(`http://124.220.6.76:1234/api/postComments/?id=${blogId}`,{
             method: 'post',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'

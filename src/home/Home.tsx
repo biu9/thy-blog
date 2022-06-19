@@ -28,7 +28,7 @@ function useComponentWillMount(func: Function) {
 }
 
 function uploadDataFunc(data:any) {
-    fetch('http://localhost:1234/api/uploadBlog', {
+    fetch('http://124.220.6.76:1234/api/uploadBlog', {
         method: 'post',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

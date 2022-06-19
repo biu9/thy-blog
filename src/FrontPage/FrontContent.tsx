@@ -11,7 +11,7 @@ function FrontContent() {
     let postNumber = 0;
     useEffect(() => {
         (async () => {
-            const response = await fetch('http://localhost:1234/api/getPosts', {
+            const response = await fetch('http://124.220.6.76:1234/api/getPosts', {
                 method: 'get',
             }).then(res => res.json());
             setPosts(response.data);
