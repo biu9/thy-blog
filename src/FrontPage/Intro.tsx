@@ -54,11 +54,11 @@ function Intro() {
             <div className='intro-decroation-circle'></div>
             <div className='intro-bg'>
             <div className='intro-left'>
-                <img className='intro-pic' src={myImage} alt="加载中...">
+                <img className='intro-pic' src='https://typora-1309407228.cos.ap-shanghai.myqcloud.com/20220619220436.png' alt="加载中...">
 
                 </img>
                 <h3 className='intro-name'>
-                    {myName}
+                    thy
                 </h3>
                 <div className='intro-relate'>
                     ZJU / EE / 大二
